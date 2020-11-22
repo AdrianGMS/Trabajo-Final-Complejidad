@@ -1,4 +1,4 @@
-![enter image description here](https://www.laureate.net/wp-content/uploads/2019/03/10-UPC-Universidad-Peruana-de-Ciencias-Aplicadas.png)
+﻿![enter image description here](https://www.laureate.net/wp-content/uploads/2019/03/10-UPC-Universidad-Peruana-de-Ciencias-Aplicadas.png)
 # Grupo7_Trabajo_Complejidad_Algoritmica
 
 <center><b>Complejidad Algorítmica – CC41</b></center> <br>
@@ -125,19 +125,12 @@ Luego de la complejidad se realizo un testeo para poder analizar la potencia de 
 
 Los tamaños de n del tablero para nuestro testeo serán: 
 
-Para el de fuerza bruta: 
-- Matriz de 3x3 con obstaculos
-- Matriz de 9x9 con obstaculos
-
-Para el de Divide y venceras:
-- Matriz de 9x9 vacia
-- Matriz de 25x25 vacia
-- Matriz de 9x9 con obstaculos
-- Matriz de 101x101
-
-Para el de A*:
-- Matriz de 9x9 con obstaculos
-- Matriz de 15*15 con obstaculos
+- Tabla 9x9 2 jugadores
+- Tabla 9x9 4 peones
+- Tabla 15x15 2 peones
+- Tabla 15x15 4 peones
+- Tabla 25x25 2 peones
+- Tabla 25x 25 4 peones
 
 El objetivo de estas pruebas es medir el tiempo de cada algoritmo que 
 
@@ -158,7 +151,7 @@ Para la creación de nuestra tabla utilizaremos la fórmula de (2*n)+1, ya que c
 
 - 9x9 (Tamaño original de tablero de quoridor)
 - 15 x 15
-- 25 x 22
+- 25 x 25
 
 No obstante, esto se implementará cuando se habilite la funcionalidad de colocar las paredes.
 
@@ -173,16 +166,30 @@ Para los experimentos, se desea medir el tiempo de cada algoritmo descrito (Back
 
 # Resultados
 - BFS:
-  - Para la primera matriz, el tiempo de resolución del problema es  0.07239842414855957 segundos
-  - Para la segunda matriz, el tiempo de resolución del problema es  5.24133825302124 segundos
+  -4 jugadores:
+    - Para la primera matriz 9 x 9, el tiempo de resolución del problema es  584.627628326416 segundos.
+    - Para la segunda matriz 15 x 15, el tiempo de resolución del problema es  1435.95552444458 segundos.
+    - Para la tercera matriz 25 x 25, el tiempo de resolución del problema es  3702.0716667175293 segundos.
+  -2 jugadores:
+    - Para la primera matriz 9 x 9, el tiempo de resolución del problema es  565.314531326294 segundos
+    - Para la segunda matriz 15 x 15, el tiempo de resolución del problema es  1354.5148372650146 segundos
+    - Para la tercera matriz 25 x 25, el tiempo de resolución del problema es  3494.032144546509 segundos
+    
 - A*:
   - Para la primera matriz, el tiempo de resolución del problema oscila en el rango de <0.00262260437011719; 0.00476837158203125> segundos siendo el ganador la ficha número 1.
   - Para la segunda matriz, el tiempo de resolución del problema oscila en el rango de <0.00286102294921875; 0.00452995300292969> segundos siendo el ganador la ficha número 2.
+  
 - Divide y vencerás:
-  - Para la primera matriz 9x9 vacia, el tiempo de resolucion del problema es de:  1.0542097091674805 segundos
-  - El tiempo del tablero vacio 25x25 es:  6.013184070587158 segundos
-  - El tiempo del tablero con laberinto 9x9 es:  1.416558027267456 segundos
-  - El tiempo del tablero vacio 101x101 es:  111.29700016975403 segundos
+  -4 jugadores:
+    - Para la primera matriz 9 x 9, el tiempo de resolución del problema es 98.19989824295044 segundos.
+    - Para la segunda matriz 15 x 15, el tiempo de resolución del problema es 229.0978240966797 segundos.
+    - Para la tercera matriz 25 x 25, el tiempo de resolución del problema es 220.007994890213 segundos.
+  -2 jugadores:
+    - Para la primera matriz 9 x 9, el tiempo de resolución del problema es 89.33368945121765 segundos.
+    - Para la segunda matriz 15 x 15, el tiempo de resolución del problema es 44.1855263710022 segundos.
+    - Para la tercera matriz 25 x 25, el tiempo de resolución del problema es  98.3169014453888 segundos.
+  
+![Graficosss](https://user-images.githubusercontent.com/54952908/99893311-634c1800-2c4c-11eb-83dc-86d3d237661b.png)
 
 ## 4. Implementación
 
@@ -232,12 +239,6 @@ En la siguiente imagen se puede apreciar en pleno juego, cómo los peones tienen
 ![game](/img/functional-game.jpeg)
 
 # Conclusiones y Recomendaciones
-Conclusiones y Recomendaciones | Entregable
------------- | -------------
-El tiempo de respuesta de los algoritmos para la resolución de hallar el camino más corto depende de un factor externo el cuál es el hardware en dónde se corren las pruebas. Para poder acercarnos a una evaluación y decisión sobre qué algoritmo es más eficiente, es necesario evaluar su complejidad. Como recomendación, es necesario realizar varias pruebas para poder hallar un rango de intervalos de tiempo que presenta la solución. Sin embargo, se vieron resultados muy notorios en la comparacion de los 3 algoritmos ante la prueba de la matriz 9x9 con obstaculos, siendo de estas 3 el algoritmo A* como ganador con un rango de tiempo de <0.00262260437011719; 0.00476837158203125> segundos, luego le sigue el algoritmo de divide y venceras con un tiempo de 1.0542097091674805 segundos y finalmente el de BFS, muy por detras de los otros 2, con un tiempo total de 5.24133825302124 segundos. Luego de haber analizado la complejidad de estos 3 algoritmos se podia decir cual era el mas efectivo pero al ponerlos en prueba es donde realmente se nota la diferencia y la eficiencia y superioridad que tiene uno ante otro como seria el caso del A* contra el de BFS. | Trabajo Parcial
-Según vemos ahora con la implementación de las paredes, en tiempo que toma el BFS en realizar todo el proceso según el tamaño de la tabla es: (tablero de 9 x 9 => 559.112548828125 segundos
-tablero de 15 x 15=> 1332.042932510376 segundos
-tablero de 25 x 25=> 3522.0999717712402 segundos
-tablero de 50 x 50=> 13749.105215072632 segundos
-tablero de 75 x 75=> 31358.9985370636 segundos
-tablero de 100 x 100 => 55145.38264274597 segundos) No obstante, como el código fue ejecutado en la herramienta de Google Collab, el tamaño del tiempo varía según variables externas como la memoria RAM otorgada por la herramienta y el procesador. | Hito 1 - TF
+
+El tiempo de respuesta de los algoritmos para la resolución de hallar el camino más corto depende de un factor externo el cuál es el hardware en dónde se corren las pruebas. Para poder acercarnos a una evaluación y decisión sobre qué algoritmo es más eficiente, es necesario evaluar su complejidad. Como recomendación, es necesario realizar varias pruebas para poder hallar un rango de intervalos de tiempo que presenta la solución. Sin embargo, se vieron resultados muy notorios en la comparacion de los 3 algoritmos ante la prueba de la matriz 9x9 con 4 peones, el algoritmo de divide y venceras con un tiempo de 98.19989824295044 segundos y el de BFS con un tiempo de  581.6788673400879 segundos, muy por detras del otro. Luego de haber analizado la complejidad de estos 3 algoritmos se podia decir cual era el mas efectivo pero al ponerlos en prueba es donde realmente se nota la diferencia y la eficiencia y superioridad que tiene uno ante otro como seria el caso del A* contra el de BFS. 
+No obstante, como los códigos fueron ejecutados en la herramienta de Google Collab, el tamaño del tiempo varía según variables externas como la memoria RAM otorgada por la herramienta y el procesador.
